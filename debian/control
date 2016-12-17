@@ -1,4 +1,4 @@
-Source: nautilus-convert2ogg
+Source: nautilus-convert2mp3
 Section: utils
 Priority: extra
 Maintainer: Lorenzo Carbonell Cerezo <lorenzo.carbonell.cerezo@gmail.com>
@@ -6,7 +6,7 @@ Build-Depends: debhelper (>= 9)
 Standards-Version: 3.9.4
 Homepage: http://www.atareao.es
 
-Package: nautilus-convert2ogg
+Package: nautilus-convert2mp3
 Architecture: all
 Depends: ${misc:Depends}, ${python:Depends},
 	python,
@@ -15,5 +15,5 @@ Depends: ${misc:Depends}, ${python:Depends},
 	gir1.2-nautilus-3.0,
 	python-nautilus,
 	ffmpeg
-Description: An extension for Nautilus to convert sound files to ogg
- An extension for Nautilus to convert sound files to ogg from menu
+Description: An extension for Nautilus to convert sound files to mp3
+ An extension for Nautilus to convert sound files to mp3 from menu
