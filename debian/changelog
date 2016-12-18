@@ -1,8 +1,14 @@
-nautilus-convert2mp3 (0.2.0-0extras16.04.2) xenial; urgency=medium
+nautilus-convert2mp3 (0.3.0-0extras16.04.0) xenial; urgency=medium
+
+  * updated icon
+
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sun, 18 Dec 2016 10:25:45 +0100
+
+nautilus-convert2mp3 (0.2.0-0extras16.04.4) xenial; urgency=medium
 
   * idleobject and progress dialog
 
- -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sat, 17 Dec 2016 08:32:58 +0100
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sat, 17 Dec 2016 10:17:33 +0100
 
 nautilus-convert2mp3 (0.0.2.2-1ubuntu2) wily; urgency=medium
 

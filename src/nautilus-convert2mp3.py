@@ -78,6 +78,8 @@ class DoItInBackground(IdleObject, Thread):
 
     def stop(self, *args):
         self.stopit = True
+        if self.process is not None:
+            self.process.terminate()
 
     def convert2mp3(self, file_in):
         tmp_file_out = tempfile.NamedTemporaryFile(
@@ -170,7 +172,6 @@ class Progreso(Gtk.Dialog, IdleObject):
                      xoptions=Gtk.AttachOptions.SHRINK)
         self.stop = False
         self.show_all()
-        self.max_value = float(max_value)
         self.value = 0.0
 
     def set_max_value(self, anobject, max_value):
@@ -262,7 +263,7 @@ class MP3ConvereterMenuProvider(GObject.GObject, FileManager.MenuProvider):
     def convert(self, menu, selected, window):
         files = get_files(selected)
         diib = DoItInBackground(files)
-        progreso = Progreso(_('Convert to mp3'), window, len(files))
+        progreso = Progreso(_('Convert to mp3'), window)
         diib.connect('started', progreso.set_max_value)
         diib.connect('start_one', progreso.set_element)
         diib.connect('end_one', progreso.increase)
@@ -280,14 +281,14 @@ class MP3ConvereterMenuProvider(GObject.GObject, FileManager.MenuProvider):
         if self.all_files_are_sounds(sel_items):
             top_menuitem = FileManager.MenuItem(
                 name='MP3ConverterMenuProvider::Gtk-convert2mp3-top',
-                label=_('500px...'),
-                tip=_('Send images to 500px'))
+                label=_('Convert to mp3'),
+                tip=_('Tool to convert to mp3'))
             submenu = FileManager.Menu()
             top_menuitem.set_submenu(submenu)
 
             sub_menuitem_00 = FileManager.MenuItem(
                 name='MP3ConverterMenuProvider::Gtk-convert2mp3-sub-01',
-                label=_('Convert to mp3'),
+                label=_('Convert'),
                 tip=_('Tool to convert to mp3'))
             sub_menuitem_00.connect('activate',
                                     self.convert,
