@@ -336,10 +336,3 @@ this program. If not, see <http://www.gnu.org/licenses/>.
         ad.set_logo_icon_name(APPNAME)
         ad.run()
         ad.destroy()
-
-if __name__ == '__main__':
-    print(tempfile.NamedTemporaryFile(
-        prefix='tmp_convert2mp3_file', dir='/tmp/').name)
-    print(get_output_filename('ejemplo.ext'))
-    print('--', get_duration('/home/lorenzo/temporal/sofia.mp4'), '--')
-    print('--', get_duration('/home/lorenzo/temporal/Alvaro Soler - Sofia-qaZ0oAh4evU.mkv'), '--')
