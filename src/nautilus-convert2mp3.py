@@ -82,21 +82,24 @@ class DoItInBackground(IdleObject, Thread):
             self.process.terminate()
 
     def convert2mp3(self, file_in):
+        tempdir = tempfile.gettempdir()
         tmp_file_out = tempfile.NamedTemporaryFile(
-            prefix='tmp_convert2mp3_file_', dir='/tmp/').name
+            prefix='tmp_convert2mp3_file_', dir=tempdir).name
         tmp_file_out += '.mp3'
         rutine = 'ffmpeg -i "%s" -vn -acodec libmp3lame -y "%s"' % (
             file_in, tmp_file_out)
         args = shlex.split(rutine)
-        self.process = subprocess.Popen(args, stdout=subprocess.PIPE)
-        out, err = self.process.communicate()
-        print(out, err)
-        file_out = get_output_filename(file_in)
-        if os.path.exists(file_out):
-            os.remove(file_out)
-        shutil.copyfile(tmp_file_out, file_out)
-        if os.path.exists(tmp_file_out):
-            os.remove(tmp_file_out)
+        try:
+            self.process = subprocess.Popen(args, stdout=subprocess.PIPE)
+            out, err = self.process.communicate()
+            print(out, err)
+            file_out = get_output_filename(file_in)
+            if os.path.exists(file_out):
+                os.remove(file_out)
+            shutil.copyfile(tmp_file_out, file_out)
+        finally:
+            if os.path.exists(tmp_file_out):
+                os.remove(tmp_file_out)
 
     def run(self):
         total = 0
@@ -216,9 +219,9 @@ def get_duration(file_in):
     err1 = p.stderr.read()
     out2, err2 = p.communicate()
     try:
-        if len(out1) > 0:
+        if out1:
             out = out1
-        elif len(err1) > 0:
+        elif err1:
             out = err1
         ans = re.search('Duration: \d+:\d\d:\d\d.\d\d', out).group().split(':')
         ans = float(ans[1]) * 3600.0 + float(ans[2]) * 60.0 + float(ans[3])
