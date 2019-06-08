@@ -3,7 +3,7 @@
 #
 # This file is part of nautilus-convert2mp3
 #
-# Copyright (C) 2012-2016 Lorenzo Carbonell
+# Copyright (C) 2012-2019 Lorenzo Carbonell
 # lorenzo.carbonell.cerezo@gmail.com
 #
 # This program is free software: you can redistribute it and/or modify
@@ -18,9 +18,7 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-#
-#
+
 import gi
 try:
     gi.require_version('Gtk', '3.0')
@@ -41,9 +39,11 @@ from gi.repository import GLib
 from gi.repository import Nautilus as FileManager
 import re
 
-EXTENSIONS_FROM = ['.acc', '.ac3', '.ogg', '.wav', '.mp4', '.flv', '.mkv']
-SEPARATOR = u'\u2015' * 10
+APPNAME = 'nautilus-convert2mp3'
+ICON = 'nautilus-convert2mp3'
+VERSION = '0.4.0'
 
+EXTENSIONS_FROM = ['.acc', '.ac3', '.ogg', '.wav', '.mp4', '.flv', '.mkv']
 _ = str
 
 
@@ -104,7 +104,6 @@ class DoItInBackground(IdleObject, Thread):
             total += get_duration(element)
         self.emit('started', total)
         try:
-            total = 0
             for element in self.elements:
                 if self.stopit is True:
                     self.ok = False
@@ -310,7 +309,7 @@ class MP3ConvereterMenuProvider(GObject.GObject, FileManager.MenuProvider):
         ad.set_name(APPNAME)
         ad.set_version(VERSION)
         ad.set_copyright('Copyrignt (c) 2016\nLorenzo Carbonell')
-        ad.set_comments(_('nautilus-convert2mp3'))
+        ad.set_comments(APPNAME)
         ad.set_license('''
 This program is free software: you can redistribute it and/or modify it under
 the terms of the GNU General Public License as published by the Free Software

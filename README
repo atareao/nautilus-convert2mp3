@@ -1,7 +1,7 @@
-convert2mp3
-===========
+nautilus-convert2mp3
+====================
 
-convert2mp3
+nautilus-convert2mp3
 
 Download
 --------
@@ -15,4 +15,4 @@ Installation
 
     $ sudo add-apt-repositoy ppa:atareao/nautilus-extensions
     $ sudo apt-get update
-    $ sudo apt-get install convert2mp3
+    $ sudo apt-get install nautilus-convert2mp3
