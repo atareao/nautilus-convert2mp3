@@ -9,11 +9,15 @@ Homepage: http://www.atareao.es
 Package: nautilus-convert2mp3
 Architecture: all
 Depends: ${misc:Depends}, ${python:Depends},
-	python,
-	python-gi,
-	python-cairo,
-	gir1.2-nautilus-3.0,
-	python-nautilus,
-	ffmpeg
+    python,
+    python-gi,
+    python-cairo,
+    python3-nautilus,
+    gir1.2-nautilus-3.0,
+    gir1.2-gtk-3.0,
+    gir1.2-gtk-3.0,
+    python3-plumbum,
+    nanecalib,
+    ffmpeg
 Description: An extension for Nautilus to convert sound files to mp3
  An extension for Nautilus to convert sound files to mp3 from menu
