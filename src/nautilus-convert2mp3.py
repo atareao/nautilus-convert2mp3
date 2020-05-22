@@ -69,20 +69,11 @@ class ConvertDIIB(DoItInBackground):
         head, tail = os.path.split(file_in)
         root, ext = os.path.splitext(tail)
         file_out = os.path.join(head, root + '.mp3')
-        tempdir = tempfile.gettempdir()
-        tmp_file_out = tempfile.NamedTemporaryFile(
-            prefix='tmp_convert2mp3_file_', dir=tempdir).name
-        tmp_file_out += '.mp3'
+        if os.path.exists(file_out):
+            os.remove(file_out)
         ffmpeg = local['ffmpeg']
-        try:
-            ffmpeg['-i', "'{}'".format(file_in), '-vn', '-acodec',
-                   'libmp3lame', '-y', "'{}'".format(tmp_file_out)]()
-            if os.path.exists(file_out):
-                os.remove(file_out)
-            shutil.copyfile(tmp_file_out, file_out)
-        finally:
-            if os.path.exists(tmp_file_out):
-                os.remove(tmp_file_out)
+        ffmpeg['-i', "'{}'".format(file_in), '-vn', '-acodec',
+                'libmp3lame', '-y', "'{}'".format(file_out)]()
 
 
 class MP3ConvereterMenuProvider(GObject.GObject, FileManager.MenuProvider):
