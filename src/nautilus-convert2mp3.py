@@ -72,8 +72,8 @@ class ConvertDIIB(DoItInBackground):
         if os.path.exists(file_out):
             os.remove(file_out)
         ffmpeg = local['ffmpeg']
-        ffmpeg['-i', "'{}'".format(file_in), '-vn', '-acodec',
-                'libmp3lame', '-y', "'{}'".format(file_out)]()
+        ffmpeg['-i', '{}'.format(file_in), '-vn', '-acodec',
+               'libmp3lame', '-y', '{}'.format(file_out)]()
 
 
 class MP3ConvereterMenuProvider(GObject.GObject, FileManager.MenuProvider):
