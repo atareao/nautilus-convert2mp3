@@ -39,8 +39,6 @@ import os
 import locale
 import gettext
 from plumbum import local
-import tempfile
-import shutil
 try:
     sys.path.insert(1, '/usr/share/nanecalib')
     from nanecalib import DoItInBackground
@@ -56,7 +54,10 @@ LANGDIR = os.path.join('usr', 'share', 'locale-langpack')
 current_locale, encoding = locale.getdefaultlocale()
 language = gettext.translation(APP, LANGDIR, [current_locale])
 language.install()
-_ = language.gettext
+try:
+    _ = language.gettext
+except Exception as exception:
+    _ = str
 
 EXTENSIONS_FROM = ['.acc', '.ac3', '.ogg', '.wav', '.mp4', '.flv', '.mkv']
 
