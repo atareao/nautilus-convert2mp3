@@ -51,10 +51,10 @@ ICON = '$APP$'
 VERSION = '$VERSION$'
 LANGDIR = os.path.join('usr', 'share', 'locale-langpack')
 
-current_locale, encoding = locale.getdefaultlocale()
-language = gettext.translation(APP, LANGDIR, [current_locale])
-language.install()
 try:
+    current_locale, encoding = locale.getdefaultlocale()
+    language = gettext.translation(APP, LANGDIR, [current_locale])
+    language.install()
     _ = language.gettext
 except Exception as exception:
     _ = str

@@ -1,8 +1,8 @@
-nautilus-convert2mp3 (0.5.0-0extras20.04.6) focal; urgency=medium
+nautilus-convert2mp3 (0.5.0-0extras20.04.8) focal; urgency=medium
 
   * Add translation
 
- -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Mon, 08 Jun 2020 20:35:34 +0200
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Thu, 10 Jun 2021 06:44:25 +0200
 
 nautilus-convert2mp3 (0.5.0-0extras20.04.0) focal; urgency=medium
 
