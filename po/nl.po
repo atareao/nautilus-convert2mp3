@@ -1,0 +1,39 @@
+# Spanish translations for nautilus-convert package.
+# Copyright (C) 2020 THE nautilus-convert'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the nautilus-convert package.
+# Lorenzo <lorenzo.carbonell.cerezo@gmail.com>, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: nautilus-convert 2mp3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-20 07:06+0200\n"
+"PO-Revision-Date: 2022-02-25 18:15+0100\n"
+"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
+"Language-Team: \n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
+
+#: src/nautilus-convert2mp3.py:102
+msgid "Convert file"
+msgstr "Bestand converteren"
+
+#: src/nautilus-convert2mp3.py:121
+msgid "Convert to mp3"
+msgstr "Converteren naar mp3"
+
+#: src/nautilus-convert2mp3.py:122 src/nautilus-convert2mp3.py:129
+msgid "Tool to convert to mp3"
+msgstr "Converteerhulpmiddel"
+
+#: src/nautilus-convert2mp3.py:128
+msgid "Convert"
+msgstr "Converteren"
+
+#: src/nautilus-convert2mp3.py:137 src/nautilus-convert2mp3.py:138
+msgid "About"
+msgstr "Over"
